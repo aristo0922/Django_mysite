@@ -79,3 +79,4 @@ fabric.properties
 
 
 .env
+__pycache__/
