@@ -2,15 +2,24 @@
 {% block content %}
 
 <div style="height:20rem; background-color:#38df81; border-radius:1rem; margin:2rem;">
-  <h1>
-    testing
+  <h1 style="font-family:'lobster', cursive;">
+    hello world list
   </h1>
+
+
   <form action="/account/hello_world/" method="post">
 <!--    장고에서 발행하는 토큰 - 보안 처리-->
     {% csrf_token %}
-    <input type="submit" class="btn btn-primary" value="POST">
+
+      <div>
+        <input type="text" name="hello_world_input">
+      </div>
+
+      <input type="submit" class="btn btn-primary" value="POST">
   </form>
-    {{ text }}
+    <h1>
+        {{ text }}
+    </h1>
 </div>
 
 {% endblock %}
