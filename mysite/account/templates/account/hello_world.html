@@ -12,14 +12,23 @@
     {% csrf_token %}
 
       <div>
-        <input type="text" name="hello_world_input">
+        <input type="text" name="user_name">
+        <input type="text" name="user_email">
+        <input type="text" name="user_password">
       </div>
 
       <input type="submit" class="btn btn-primary" value="POST">
   </form>
-    <h1>
-        {{ text }}
-    </h1>
+
+    {% if new_user_list %}
+        {% for new_user in new_user_list %}
+        <h4>
+            {{ new_user.name }}
+            {{ new_user.email }}
+        </h4>
+        {% endfor %}
+    {% endif %}
+
 </div>
 
 {% endblock %}
