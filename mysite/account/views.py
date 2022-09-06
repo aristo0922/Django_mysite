@@ -3,10 +3,20 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
+import account
 from account.models import user
+from account.serializers import UserSerializer
 
 
+class UsertListAPI(APIView):
+    def get(self, request):
+        queryset = user.objects.all()
+        print(queryset)
+        serializer = UserSerializer(queryset, many=True)
+        return Response(serializer.data)
 def hello_world(request):
 
     if request.method=="POST":
